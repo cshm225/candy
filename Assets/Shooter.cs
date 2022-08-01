@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    const int MaxShotPower = 6;
+    const int RecoverySeconds = 3;
+    int shotPower = MaxShotPower;
     // Start is called before the first frame update
+    public CandyManager candyManager;
     public GameObject[] candyPrefab;
     public Transform candyParentTransform;
     public float baseWidth;
@@ -13,6 +17,9 @@ public class Shooter : MonoBehaviour
 
     public void Shot()
     {
+        if (candyManager.GetCandyAmount() <= 0) return;
+        if (shotPower <= 0) return;
+
         GameObject candy = (GameObject)Instantiate(
             SampleCandy(),
             GetInstantiatePosition(),
@@ -22,15 +29,35 @@ public class Shooter : MonoBehaviour
         Rigidbody candyRigidBody = candy.GetComponent<Rigidbody>();
         candyRigidBody.AddForce(transform.forward * shotForce);
         candyRigidBody.AddTorque(new Vector3(0, shotTorque, 0));
-
+        candyManager.ConsumeCandy();
+        ConsumePower();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) Shot();
     }
 
+    void OnGUI()
+    {
+        GUI.color = Color.black;
+        string label = "";
+        for (int i = 0; i < shotPower; i++) label = label + "+";
+
+        GUI.Label(new Rect(50, 65, 100, 30), label);
+
+    }
+    void ConsumePower()
+    {
+        shotPower--;
+        StartCoroutine(RecoverPower());
+
+    }
+
+    IEnumerator RecoverPower()
+    {
+        yield return new WaitForSeconds(RecoverySeconds);
+        shotPower++;
+    }
     GameObject SampleCandy()
     {
         int index = Random.Range(0, candyPrefab.Length);
