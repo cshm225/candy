@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2125,6 +2125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyManager: {fileID: 1213983613}
+  effectPrefab: {fileID: 0}
+  effectRotation: {x: 0, y: 0, z: 0}
   reward: 0
 --- !u!65 &1567450182
 BoxCollider:
@@ -2184,6 +2186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyManager: {fileID: 1213983613}
+  effectPrefab: {fileID: 0}
+  effectRotation: {x: 0, y: 0, z: 0}
   reward: 0
 --- !u!65 &1569700844
 BoxCollider:
@@ -2578,6 +2582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyManager: {fileID: 1213983613}
+  effectPrefab: {fileID: 4390097136726703904, guid: 54f83891b29a55d44ba5f529471dee81,
+    type: 3}
+  effectRotation: {x: -100, y: -20, z: 0}
   reward: 3
 --- !u!65 &1923570483
 BoxCollider:
