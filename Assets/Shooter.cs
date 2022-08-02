@@ -76,6 +76,7 @@ public class Shooter : MonoBehaviour
     Vector3 GetInstantiatePosition()
     {
         float x = baseWidth * (Input.mousePosition.x / Screen.width) - (baseWidth / 2);
+        Debug.Log(Input.mousePosition.x+" "+Screen.width+" "+x);
         return transform.position + new Vector3(x, 0, 0);
     }
 }
