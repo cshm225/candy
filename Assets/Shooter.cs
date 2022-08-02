@@ -14,6 +14,14 @@ public class Shooter : MonoBehaviour
     public float baseWidth;
     public float shotForce;
     public float shotTorque;
+    AudioSource shotSound;
+
+    void Start()
+    {
+        shotSound = GetComponent<AudioSource>();
+
+
+    }
 
     public void Shot()
     {
@@ -31,6 +39,7 @@ public class Shooter : MonoBehaviour
         candyRigidBody.AddTorque(new Vector3(0, shotTorque, 0));
         candyManager.ConsumeCandy();
         ConsumePower();
+        shotSound.Play();
     }
     void Update()
     {

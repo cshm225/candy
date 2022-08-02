@@ -3,7 +3,9 @@ guid: faac8069ae679774eb3f53ab1d3cf65a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - candyManager: {instanceID: 0}
+  - effectPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
